@@ -1,4 +1,3 @@
-import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -7,14 +6,9 @@ import s from "./Forms.module.css";
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const RegistrationSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, "Too Short!")
-    .max(20, "Too Long!")
-    .required("Required"),
+  name: Yup.string().min(2, "Too Short!").required("Required"),
   number: Yup.string()
     .matches(phoneRegExp, "invalid number")
-    .min(7, "Too Short!")
-    .max(11, "Too Long!")
     .required("Required"),
 });
 
@@ -56,7 +50,6 @@ export default function Forms({ getSubmit }) {
             onChange={formik.handleChange}
             value={formik.values.number}
             className={s.input}
-            autoComplete="off"
           />
           {formik.errors.number}
           <label className={s.label}>Number:</label>
