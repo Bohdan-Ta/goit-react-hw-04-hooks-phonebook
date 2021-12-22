@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import s from "./Contacts.module.css";
 
-function Contacts({ contacts, onDeleteContact }) {
+export default function Contacts({ contacts, onDeleteContact }) {
   return (
     <>
       <ul>
@@ -37,4 +37,3 @@ Contacts.propTypes = {
   ),
   onDeleteContact: PropTypes.func.isRequired,
 };
-export default Contacts;

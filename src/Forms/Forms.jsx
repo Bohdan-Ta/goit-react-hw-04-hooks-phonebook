@@ -13,6 +13,8 @@ const RegistrationSchema = Yup.object().shape({
     .required("Required"),
   number: Yup.string()
     .matches(phoneRegExp, "invalid number")
+    .min(7, "Too Short!")
+    .max(11, "Too Long!")
     .required("Required"),
 });
 
